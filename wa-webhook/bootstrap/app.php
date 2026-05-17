@@ -12,6 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
+        $middleware->validateCsrfTokens(except: [
+            'api/evolution-receiver' // <-- KECUALIKAN ALAMAT INI
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
